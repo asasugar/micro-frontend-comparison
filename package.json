@@ -1,0 +1,20 @@
+{
+  "name": "micro-frontend-comparison",
+  "version": "1.0.0",
+  "private": true,
+  "description": "微前端框架对比示例",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean"
+  },
+  "keywords": [
+    "micro-frontend",
+    "qiankun",
+    "micro-app",
+    "wujie"
+  ],
+  "author": "",
+  "license": "MIT"
+}

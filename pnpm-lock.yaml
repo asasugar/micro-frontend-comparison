@@ -149,7 +149,7 @@ importers:
         specifier: ^2.54.6
         version: 2.57.0(vue@3.5.17(typescript@5.8.3))
       garfish:
-        specifier: ^1.17.6
+        specifier: ^1.19.4
         version: 1.19.4
       vue:
         specifier: ^3.4.21
@@ -180,7 +180,7 @@ importers:
         specifier: ^2.54.6
         version: 2.57.0(vue@3.5.17(typescript@5.8.3))
       '@micro-zoe/micro-app':
-        specifier: ^1.0.0-rc.3
+        specifier: 1.0.0-rc.26
         version: 1.0.0-rc.26
       vue:
         specifier: ^3.4.21
@@ -259,6 +259,9 @@ importers:
       vue-router:
         specifier: ^4.3.0
         version: 4.5.1(vue@3.5.17(typescript@5.8.3))
+      wujie:
+        specifier: ^1.0.28
+        version: 1.0.28
       wujie-vue3:
         specifier: ^1.0.28
         version: 1.0.28(vue@3.5.17(typescript@5.8.3))

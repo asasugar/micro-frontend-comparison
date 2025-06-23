@@ -10,29 +10,33 @@ microApp.start({
   plugins: {
     modules: {
       // 解决子应用样式冲突
-      'vue-app': [{
-        loader(code) {
-          if (process.env.NODE_ENV === 'development') {
-            // 这里 /basename/ 需要和子应用的 basename 对应
-            code = code.replace(/(from|import)(\s*['"])(\/vue\/)/g, all => {
-              return all.replace('/vue/', 'http://localhost:8001/vue/')
-            })
-          }
-          return code
-        }
-      }],
-      'react-app': [{
-        loader(code) {
-          if (process.env.NODE_ENV === 'development') {
-            code = code.replace(/(from|import)(\s*['"])(\/react\/)/g, all => {
-              return all.replace('/react/', 'http://localhost:8002/react/')
-            })
-          }
-          return code
-        }
-      }]
-    }
-  }
+      'vue-app': [
+        {
+          loader(code: string) {
+            if (process.env.NODE_ENV === 'development') {
+              // 这里 /basename/ 需要和子应用的 basename 对应
+              code = code.replace(/(from|import)(\s*['"])(\/vue\/)/g, all => {
+                return all.replace('/vue/', 'http://localhost:8001/vue/');
+              });
+            }
+            return code;
+          },
+        },
+      ],
+      'react-app': [
+        {
+          loader(code: string) {
+            if (process.env.NODE_ENV === 'development') {
+              code = code.replace(/(from|import)(\s*['"])(\/react\/)/g, all => {
+                return all.replace('/react/', 'http://localhost:8002/react/');
+              });
+            }
+            return code;
+          },
+        },
+      ],
+    },
+  },
 });
 
 // 创建 Vue 应用

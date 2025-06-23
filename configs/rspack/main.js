@@ -1,4 +1,4 @@
-const { merge } = require('@rspack/core');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./base');
 
 const getMainConfig = (options = {}) => {
@@ -6,12 +6,12 @@ const getMainConfig = (options = {}) => {
 
   return merge(baseConfig, {
     entry: {
-      main: "./src/main.ts"
+      main: './src/main.ts',
     },
     devServer: {
       port,
-      historyApiFallback: true
-    }
+      historyApiFallback: true,
+    },
   });
 };
 

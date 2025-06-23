@@ -1,42 +1,47 @@
-const { VueLoaderPlugin } = require("vue-loader");
+const { VueLoaderPlugin } = require('vue-loader');
 
 /** @type {import('@rspack/cli').Configuration} */
 const baseConfig = {
   context: process.cwd(),
   resolve: {
-    extensions: ["...", ".ts", ".tsx", ".vue", ".js", ".jsx"]
+    extensions: ['...', '.ts', '.tsx', '.vue', '.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: "vue-loader",
+        loader: 'vue-loader',
         options: {
-          experimentalInlineMatchResource: true
-        }
+          experimentalInlineMatchResource: true,
+        },
       },
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        type: "typescript"
+        use: {
+          loader: 'builtin:swc-loader',
+          options: {
+            sourceMap: true,
+            jsc: {
+              parser: {
+                syntax: 'typescript',
+                tsx: true,
+              },
+            },
+          },
+        },
       },
       {
-        test: /\.css$/,
-        type: "css"
-      },
-      {
-        test: /\.less$/,
-        type: "css",
+        test: /\.(css|less)$/i,
         use: [
-          {
-            loader: "less-loader"
-          }
-        ]
-      }
-    ]
+          'style-loader', // 开发环境使用style-loader提高HMR编译效率
+          'css-loader',
+          'less-loader',
+        ],
+        type: 'javascript/auto',
+      },
+    ],
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ]
+  plugins: [new VueLoaderPlugin()],
 };
 
 module.exports = baseConfig;

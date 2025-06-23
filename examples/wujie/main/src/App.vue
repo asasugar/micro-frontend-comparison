@@ -5,20 +5,20 @@
         <img src="https://wujie-micro.github.io/doc/wujie.png" alt="wujie logo" />
         <span>无界</span>
       </div>
-      <a-menu mode="horizontal" :selected-keys="[route.name as string]" @menu-item-click="handleMenuClick">
+      <a-menu mode="horizontal" :selected-keys="[route.name]" @menu-item-click="handleMenuClick">
         <a-menu-item key="home">首页</a-menu-item>
         <a-menu-item key="vue-app">Vue 子应用</a-menu-item>
         <a-menu-item key="react-app">React 子应用</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content>
-      <router-view></router-view>
+      <router-view />
     </a-layout-content>
   </a-layout>
 </template>
 
 <script setup lang="ts">
-import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter();
 const route = useRoute();

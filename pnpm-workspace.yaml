@@ -1,5 +1,10 @@
 packages:
   # 所有 packages/ 目录下的包
   - 'packages/*'
-  # 所有 examples/ 目录下的示例项目
-  - 'examples/*'
+  # apps 示例
+  - 'examples/apps/*'
+  # 各个微前端框架示例
+  - 'examples/qiankun/**'
+  - 'examples/micro-app/**'
+  - 'examples/wujie/**'
+  - 'examples/garfish/**'

@@ -7,9 +7,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
-    }
-  ]
+      component: Home,
+    },
+    {
+      path: '/vue',
+      name: 'vue',
+      component: Home,
+    },
+    {
+      path: '/react',
+      name: 'react',
+      component: Home,
+    },
+  ],
 });
 
 export default router;

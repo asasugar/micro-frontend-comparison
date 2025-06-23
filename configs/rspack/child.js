@@ -1,4 +1,4 @@
-const { merge } = require('@rspack/core');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./base');
 
 const getPublicPath = (framework, port) => {
@@ -17,16 +17,11 @@ const getPublicPath = (framework, port) => {
 };
 
 const getChildConfig = (options = {}) => {
-  const {
-    port,
-    framework = process.env.BUILD_ENV,
-    entry = './src/main.ts',
-    name
-  } = options;
+  const { port, framework = process.env.BUILD_ENV, entry = './src/main.ts', name } = options;
 
   return merge(baseConfig, {
     entry: {
-      main: entry
+      main: entry,
     },
     output: {
       publicPath: getPublicPath(framework, port),
@@ -37,9 +32,9 @@ const getChildConfig = (options = {}) => {
       port,
       historyApiFallback: true,
       headers: {
-        "Access-Control-Allow-Origin": "*"
-      }
-    }
+        'Access-Control-Allow-Origin': '*',
+      },
+    },
   });
 };
 

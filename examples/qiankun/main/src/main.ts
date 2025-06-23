@@ -15,13 +15,13 @@ app.mount('#app');
 registerMicroApps([
   {
     name: 'vue-app',
-    entry: '//localhost:8001',
+    entry: '//localhost:8002',
     container: '#subapp-container',
     activeRule: '/vue',
   },
   {
     name: 'react-app',
-    entry: '//localhost:8002',
+    entry: '//localhost:8003',
     container: '#subapp-container',
     activeRule: '/react',
   },

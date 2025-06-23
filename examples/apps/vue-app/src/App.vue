@@ -1,11 +1,10 @@
 <template>
   <div class="app-container">
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style>
 .app-container {

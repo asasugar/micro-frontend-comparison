@@ -8,8 +8,8 @@
       <a-list-item> React 子应用 - 使用 React 18 + Rsbuild </a-list-item>
     </a-list>
     <div class="actions">
-      <a-button type="primary" @click="router.push('/vue')"> 访问 Vue 子应用 </a-button>
-      <a-button type="primary" style="margin-left: 16px" @click="router.push('/react')">
+      <a-button type="primary" @click="router.push('/vue-app')"> 访问 Vue 子应用 </a-button>
+      <a-button type="primary" style="margin-left: 16px" @click="router.push('/react-app')">
         访问 React 子应用
       </a-button>
     </div>

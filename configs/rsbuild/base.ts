@@ -4,7 +4,7 @@ import type { RsbuildConfig } from '@rsbuild/core';
 export const baseConfig: RsbuildConfig = defineConfig({
   source: {
     entry: {
-      main: './src/main.ts',
+      index: './src/main.ts',
     },
   },
   resolve: {

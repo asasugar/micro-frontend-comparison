@@ -4,7 +4,6 @@ import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import router from './router';
 import '@arco-design/web-vue/dist/arco.css';
-console.log(1111111);
 // 初始化 micro-app
 microApp.start({
   plugins: {
@@ -15,8 +14,8 @@ microApp.start({
           loader(code: string) {
             if (process.env.NODE_ENV === 'development') {
               // 这里 /basename/ 需要和子应用的 basename 对应
-              code = code.replace(/(from|import)(\s*['"])(\/vue\/)/g, all => {
-                return all.replace('/vue/', 'http://localhost:8002/vue/');
+              code = code.replace(/(from|import)(\s*['"])(\/vue-app\/)/g, all => {
+                return all.replace('/vue-app/', 'http://localhost:8002/vue-app/');
               });
             }
             return code;
@@ -27,8 +26,8 @@ microApp.start({
         {
           loader(code: string) {
             if (process.env.NODE_ENV === 'development') {
-              code = code.replace(/(from|import)(\s*['"])(\/react\/)/g, all => {
-                return all.replace('/react/', 'http://localhost:8003/react/');
+              code = code.replace(/(from|import)(\s*['"])(\/react-app\/)/g, all => {
+                return all.replace('/react-app/', 'http://localhost:8003/react-app/');
               });
             }
             return code;
@@ -41,6 +40,7 @@ microApp.start({
 
 // 创建 Vue 应用
 const app = createApp(App);
+console.log('%c [ app ]-44', 'font-size:13px; background:pink; color:#bf2c9f;', app);
 app.use(ArcoVue);
 app.use(router);
-app.mount('#app');
+app.mount('#root');

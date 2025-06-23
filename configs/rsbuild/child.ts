@@ -6,18 +6,18 @@ interface ChildOptions {
   port?: number;
   framework?: 'qiankun' | 'micro-app' | 'wujie' | 'garfish';
   entry?: string;
-  name?: string;
+  publicPathName?: string;
   plugins?: RsbuildConfig['plugins'];
 }
 
-const getPublicPath = (framework: string, port: number): string => {
+const getPublicPath = (framework: string, publicPathName: string, port: number): string => {
   switch (framework) {
     case 'qiankun':
       return `http://localhost:${port}/`;
     case 'micro-app':
-      return '/';
+      return publicPathName;
     case 'wujie':
-      return '/';
+      return publicPathName;
     case 'garfish':
       return `http://localhost:${port}/`;
     default:
@@ -27,26 +27,29 @@ const getPublicPath = (framework: string, port: number): string => {
 
 export const getChildConfig = (options: ChildOptions = {}): RsbuildConfig => {
   const {
-    port = 8001,
+    port = 8002,
     framework = process.env.BUILD_ENV as string,
     entry = './src/main.ts',
-    name = 'child',
+    publicPathName = '/',
     plugins = [],
   } = options;
 
   return mergeRsbuildConfig(baseConfig, {
+    html: {
+      template: './index.html',
+    },
     source: {
       entry: {
-        [name]: entry,
+        index: entry,
       },
     },
     output: {
-      assetPrefix: getPublicPath(framework, port),
+      assetPrefix: getPublicPath(framework, publicPathName, port),
     },
     tools: {
       rspack: {
         output: {
-          library: framework === 'qiankun' ? name : undefined,
+          library: framework === 'qiankun' ? publicPathName : undefined,
           libraryTarget: framework === 'qiankun' ? 'umd' : undefined,
         },
       },
@@ -58,7 +61,7 @@ export const getChildConfig = (options: ChildOptions = {}): RsbuildConfig => {
       },
     },
     dev: {
-      assetPrefix: getPublicPath(framework, port),
+      assetPrefix: getPublicPath(framework, publicPathName, port),
     },
     plugins,
   });

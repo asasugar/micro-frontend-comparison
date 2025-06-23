@@ -25,13 +25,13 @@ Garfish.run({
   domGetter: '#subapp-container',
   apps: [
     {
-      name: 'react-app',
-      activeWhen: '/react-app',
+      name: 'vue-app',
+      activeWhen: '/vue-app',
       entry: 'http://localhost:8002',
     },
     {
-      name: 'vue-app',
-      activeWhen: '/vue-app',
+      name: 'react-app',
+      activeWhen: '/react-app',
       entry: 'http://localhost:8003',
     },
   ],

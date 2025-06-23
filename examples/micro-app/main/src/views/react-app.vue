@@ -1,10 +1,6 @@
 <template>
   <div class="sub-app">
-    <micro-app
-      name="react-app"
-      url="http://localhost:8002/react/"
-      baseroute="/react"
-    ></micro-app>
+    <micro-app name="react-app" url="http://localhost:8002/react-app/" baseroute="/react-app" />
   </div>
 </template>
 

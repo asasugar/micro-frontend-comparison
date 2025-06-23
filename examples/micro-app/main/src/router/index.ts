@@ -7,19 +7,19 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
-      path: '/vue/:page*',
+      path: '/vue-app/',
       name: 'vue',
-      component: () => import('../views/vue-app.vue')
+      component: () => import('../views/vue-app.vue'),
     },
     {
-      path: '/react/:page*',
+      path: '/react-app/',
       name: 'react',
-      component: () => import('../views/react-app.vue')
-    }
-  ]
+      component: () => import('../views/react-app.vue'),
+    },
+  ],
 });
 
 export default router;

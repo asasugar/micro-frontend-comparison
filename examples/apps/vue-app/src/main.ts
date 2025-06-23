@@ -1,8 +1,8 @@
-import { createApp } from "vue";
-import ArcoVue from "@arco-design/web-vue";
-import App from "./App.vue";
-import router from "./router";
-import "@arco-design/web-vue/dist/arco.css";
+import { createApp } from 'vue';
+import ArcoVue from '@arco-design/web-vue';
+import App from './App.vue';
+import router from './router';
+import '@arco-design/web-vue/dist/arco.css';
 
 declare global {
   interface Window {
@@ -49,9 +49,9 @@ if (window.__MICRO_APP_ENVIRONMENT__) {
 
 // wujie 环境
 if (window.__POWERED_BY_WUJIE__) {
-  let path = window.__WUJIE_PUBLIC_PATH__ || "/";
+  const path = window.__WUJIE_PUBLIC_PATH__ || '/';
   router.beforeEach((to, from, next) => {
-    if (to.path === "/") {
+    if (to.path === '/') {
       next();
     } else {
       next(path);

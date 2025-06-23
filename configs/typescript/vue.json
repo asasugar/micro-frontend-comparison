@@ -1,7 +1,10 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
-    "jsx": "preserve"
-  },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+    "jsx": "preserve",
+    "types": ["node", "vue"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  }
 }

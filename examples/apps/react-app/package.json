@@ -1,0 +1,32 @@
+{
+  "name": "shared-react-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "cross-env PORT=8002 rspack serve",
+    "dev:qiankun": "cross-env BUILD_ENV=qiankun PORT=8002 rspack serve",
+    "dev:micro-app": "cross-env BUILD_ENV=micro-app PORT=8002 rspack serve",
+    "dev:wujie": "cross-env BUILD_ENV=wujie PORT=8002 rspack serve",
+    "dev:garfish": "cross-env BUILD_ENV=garfish PORT=8002 rspack serve",
+    "build": "rspack build",
+    "build:qiankun": "cross-env BUILD_ENV=qiankun rspack build",
+    "build:micro-app": "cross-env BUILD_ENV=micro-app rspack build",
+    "build:wujie": "cross-env BUILD_ENV=wujie rspack build",
+    "build:garfish": "cross-env BUILD_ENV=garfish rspack build"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "^2.60.1",
+    "@garfish/bridge-react": "^1.17.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.5.7",
+    "@rspack/core": "^0.5.7",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "cross-env": "^7.0.3",
+    "typescript": "^5.4.2"
+  }
+}

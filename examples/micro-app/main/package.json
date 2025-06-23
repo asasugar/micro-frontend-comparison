@@ -1,0 +1,27 @@
+{
+  "name": "@examples/micro-app-main",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rspack serve",
+    "build": "rspack build",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.54.5",
+    "@micro-zoe/micro-app": "^1.0.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.5.8",
+    "@rspack/core": "^0.5.8",
+    "@types/node": "^20.11.28",
+    "less": "^4.2.0",
+    "less-loader": "^12.2.0",
+    "postcss": "^8.4.35",
+    "postcss-loader": "^8.1.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.2"
+  }
+}

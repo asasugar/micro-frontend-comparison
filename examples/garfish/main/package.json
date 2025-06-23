@@ -1,0 +1,22 @@
+{
+  "name": "garfish-main",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rspack serve",
+    "build": "rspack build"
+  },
+  "dependencies": {
+    "@arco-design/web-vue": "^2.54.5",
+    "@garfish/bridge-vue-v3": "^1.17.6",
+    "garfish": "^1.17.6",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^0.5.7",
+    "@rspack/core": "^0.5.7",
+    "typescript": "^5.4.2",
+    "vue-loader": "^17.4.2"
+  }
+}

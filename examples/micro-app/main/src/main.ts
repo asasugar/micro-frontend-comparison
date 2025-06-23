@@ -4,7 +4,7 @@ import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import router from './router';
 import '@arco-design/web-vue/dist/arco.css';
-
+console.log(1111111);
 // 初始化 micro-app
 microApp.start({
   plugins: {
@@ -16,7 +16,7 @@ microApp.start({
             if (process.env.NODE_ENV === 'development') {
               // 这里 /basename/ 需要和子应用的 basename 对应
               code = code.replace(/(from|import)(\s*['"])(\/vue\/)/g, all => {
-                return all.replace('/vue/', 'http://localhost:8001/vue/');
+                return all.replace('/vue/', 'http://localhost:8002/vue/');
               });
             }
             return code;
@@ -28,7 +28,7 @@ microApp.start({
           loader(code: string) {
             if (process.env.NODE_ENV === 'development') {
               code = code.replace(/(from|import)(\s*['"])(\/react\/)/g, all => {
-                return all.replace('/react/', 'http://localhost:8002/react/');
+                return all.replace('/react/', 'http://localhost:8003/react/');
               });
             }
             return code;

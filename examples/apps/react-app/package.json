@@ -3,16 +3,16 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "cross-env PORT=8002 rspack serve",
-    "dev:qiankun": "cross-env BUILD_ENV=qiankun PORT=8002 rspack serve",
-    "dev:micro-app": "cross-env BUILD_ENV=micro-app PORT=8002 rspack serve",
-    "dev:wujie": "cross-env BUILD_ENV=wujie PORT=8002 rspack serve",
-    "dev:garfish": "cross-env BUILD_ENV=garfish PORT=8002 rspack serve",
-    "build": "rspack build",
-    "build:qiankun": "cross-env BUILD_ENV=qiankun rspack build",
-    "build:micro-app": "cross-env BUILD_ENV=micro-app rspack build",
-    "build:wujie": "cross-env BUILD_ENV=wujie rspack build",
-    "build:garfish": "cross-env BUILD_ENV=garfish rspack build"
+    "dev": "cross-env PORT=8003 rsbuild dev",
+    "dev:qiankun": "cross-env BUILD_ENV=qiankun PORT=8003 rsbuild dev",
+    "dev:micro-app": "cross-env BUILD_ENV=micro-app PORT=8003 rsbuild dev",
+    "dev:wujie": "cross-env BUILD_ENV=wujie PORT=8003 rsbuild dev",
+    "dev:garfish": "cross-env BUILD_ENV=garfish PORT=8003 rsbuild dev",
+    "build": "rsbuild build",
+    "build:qiankun": "cross-env BUILD_ENV=qiankun rsbuild build",
+    "build:micro-app": "cross-env BUILD_ENV=micro-app rsbuild build",
+    "build:wujie": "cross-env BUILD_ENV=wujie rsbuild build",
+    "build:garfish": "cross-env BUILD_ENV=garfish rsbuild build"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.60.1",
@@ -22,8 +22,7 @@
     "react-router-dom": "6.22.3"
   },
   "devDependencies": {
-    "@rspack/cli": "^1.3.15",
-    "@rspack/core": "^1.3.15",
+    "@rsbuild/core": "^1.3.22",
     "@types/react": "^18.2.67",
     "@types/react-dom": "^18.2.22",
     "cross-env": "^7.0.3",

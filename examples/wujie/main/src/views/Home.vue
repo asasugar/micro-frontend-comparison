@@ -10,16 +10,14 @@
           <li>基于 Vue3 的主应用</li>
           <li>Vue3 子应用</li>
           <li>React 18 子应用</li>
-          <li>统一的构建工具 (Rspack)</li>
+          <li>统一的构建工具 (Rsbuild)</li>
           <li>完整的 TypeScript 支持</li>
           <li>优雅的 UI 设计 (Arco Design)</li>
         </ul>
       </a-typography-paragraph>
       <a-typography-paragraph>
         <a-space>
-          <a-button type="primary" @click="router.push('/vue-app')">
-            访问 Vue 子应用
-          </a-button>
+          <a-button type="primary" @click="router.push('/vue-app')"> 访问 Vue 子应用 </a-button>
           <a-button type="primary" status="success" @click="router.push('/react-app')">
             访问 React 子应用
           </a-button>
@@ -30,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 </script>

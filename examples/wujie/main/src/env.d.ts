@@ -1,4 +1,4 @@
-/// <reference types="@rspack/cli" />
+/// <reference types="@rsbuild/core" />
 
 declare module '*.vue' {
   import type { DefineComponent } from 'vue';

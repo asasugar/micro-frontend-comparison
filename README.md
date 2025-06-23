@@ -12,10 +12,10 @@
 ```
 micro-frontend-comparison/
 ├── configs/                    # 共享配置
-│   ├── rspack/                # Rspack 配置
-│   │   ├── base.js           # 基础配置
-│   │   ├── child.js          # 子应用配置
-│   │   └── main.js           # 主应用配置
+│   ├── rsbuild/                # Rsbuild 配置
+│   │   ├── base.ts           # 基础配置
+│   │   ├── child.ts          # 子应用配置
+│   │   └── main.ts           # 主应用配置
 │   └── typescript/            # TypeScript 配置
 │       ├── base.json         # 基础配置
 │       ├── react.json        # React 项目配置
@@ -25,31 +25,31 @@ micro-frontend-comparison/
 │   │   ├── react-app/        # React 子应用
 │   │   │   ├── src/
 │   │   │   ├── package.json
-│   │   │   └── rspack.config.js
+│   │   │   └── rsbuild.config.ts
 │   │   └── vue-app/          # Vue 子应用
 │   │       ├── src/
 │   │       ├── package.json
-│   │       └── rspack.config.js
+│   │       └── rsbuild.config.ts
 │   ├── qiankun/              # qiankun 示例
 │   │   └── main/             # 主应用
 │   │       ├── src/
 │   │       ├── package.json
-│   │       └── rspack.config.js
+│   │       └── rsbuild.config.ts
 │   ├── micro-app/            # micro-app 示例
 │   │   └── main/             # 主应用
 │   │       ├── src/
 │   │       ├── package.json
-│   │       └── rspack.config.js
+│   │       └── rsbuild.config.ts
 │   ├── wujie/                # wujie 示例
 │   │   └── main/             # 主应用
 │   │       ├── src/
 │   │       ├── package.json
-│   │       └── rspack.config.js
+│   │       └── rsbuild.config.ts
 │   └── garfish/              # Garfish 示例
 │       └── main/             # 主应用
 │           ├── src/
 │           ├── package.json
-│           └── rspack.config.js
+│           └── rsbuild.config.ts
 ├── packages/                  # 共享包（预留）
 ├── pnpm-workspace.yaml       # 工作空间配置
 ├── package.json             # 项目配置
@@ -145,7 +145,7 @@ pnpm type-check
 
 每个示例都包含以下内容：
 
-1. 主应用（Main）- 基于 Vue3 + Rspack
+1. 主应用（Main）- 基于 Vue3 + Rsbuild
 2. 子应用 A（Vue3）
 3. 子应用 B（React）
 

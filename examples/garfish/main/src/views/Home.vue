@@ -10,7 +10,7 @@
           <a-list-item>Vue3 主应用</a-list-item>
           <a-list-item>React 子应用</a-list-item>
           <a-list-item>Vue3 子应用</a-list-item>
-          <a-list-item>统一的构建工具 (Rspack)</a-list-item>
+          <a-list-item>统一的构建工具 (Rsbuild)</a-list-item>
           <a-list-item>统一的组件库 (Arco Design)</a-list-item>
         </a-list>
         <a-space>

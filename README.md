@@ -9,7 +9,7 @@
 
 ## 项目结构
 
-```
+```tree
 micro-frontend-comparison/
 ├── configs/                    # 共享配置
 │   ├── rsbuild/                # Rsbuild 配置
@@ -30,6 +30,10 @@ micro-frontend-comparison/
 │   │       ├── src/
 │   │       ├── package.json
 │   │       └── rsbuild.config.ts
+│   ├── shared/               # shared 模块
+│   │   └───
+│   │       ├── src/  # 声明文件 辅助函数
+│   │       └── package.json
 │   ├── qiankun/              # qiankun 示例
 │   │   └── main/             # 主应用
 │   │       ├── src/
@@ -50,7 +54,6 @@ micro-frontend-comparison/
 │           ├── src/
 │           ├── package.json
 │           └── rsbuild.config.ts
-├── packages/                  # 共享包（预留）
 ├── pnpm-workspace.yaml       # 工作空间配置
 ├── package.json             # 项目配置
 └── README.md               # 项目说明

@@ -1,25 +1,18 @@
 <template>
-  <div class="app-container">
-    <a-layout>
-      <a-layout-header>
-        <div class="header-content">
-          <div class="logo">Garfish Demo</div>
-          <a-menu
-            mode="horizontal"
-            :selected-keys="[currentRoute]"
-            @menu-item-click="handleMenuClick"
-          >
-            <a-menu-item key="/">首页</a-menu-item>
-            <a-menu-item key="/react-app">React 子应用</a-menu-item>
-            <a-menu-item key="/vue-app">Vue 子应用</a-menu-item>
-          </a-menu>
-        </div>
-      </a-layout-header>
-      <a-layout-content>
-        <div id="subapp-container" />
-      </a-layout-content>
-    </a-layout>
-  </div>
+  <a-layout class="layout">
+    <a-layout-header class="header">
+      <div class="logo">Garfish Demo</div>
+      <a-menu mode="horizontal" :selected-keys="[currentRoute]" @menu-item-click="handleMenuClick">
+        <a-menu-item key="/">首页</a-menu-item>
+        <a-menu-item key="/vue-app">Vue 子应用</a-menu-item>
+        <a-menu-item key="/react-app">React 子应用</a-menu-item>
+      </a-menu>
+    </a-layout-header>
+    <router-view v-slot="{ Component }">
+      <component :is="Component" />
+    </router-view>
+    <div id="subapp-container" />
+  </a-layout>
 </template>
 
 <script setup lang="ts">
@@ -35,46 +28,26 @@ const handleMenuClick = (key: string) => {
 };
 </script>
 
-<style scoped>
-.app-container {
+<style scoped lang="less">
+.layout {
   height: 100vh;
 }
 
-.header-content {
+.header {
   display: flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  background: var(--color-bg-2);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .logo {
-  color: #fff;
-  font-size: 20px;
-  font-weight: bold;
-  margin-right: 40px;
+  margin-right: 24px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
-:deep(.arco-layout-header) {
-  background: #18181c;
-}
-
-:deep(.arco-menu) {
-  background: transparent;
-}
-
-:deep(.arco-menu-horizontal) {
-  border-bottom: none;
-}
-
-:deep(.arco-layout-content) {
-  padding: 20px;
-  background: #f5f6f7;
-}
-
-#subapp-container {
-  background: #fff;
-  border-radius: 4px;
-  min-height: calc(100vh - 108px);
+.content {
+  padding: 24px;
+  background: var(--color-bg-1);
 }
 </style>

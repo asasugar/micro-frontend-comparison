@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "@arco-design/web-react/dist/css/arco.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import '@arco-design/web-react/dist/css/arco.css';
 
 declare global {
   interface Window {
@@ -23,7 +23,9 @@ let root: ReactDOM.Root | null = null;
 // qiankun 生命周期
 function render(props: any = {}) {
   const { container } = props;
-  const rootElement = container ? container.querySelector('#root') : document.getElementById('root');
+  const rootElement = container
+    ? container.querySelector('#root')
+    : document.getElementById('root');
 
   root = ReactDOM.createRoot(rootElement as HTMLElement);
   root.render(
@@ -45,9 +47,6 @@ export async function unmount() {
 // micro-app 环境
 if (window.__MICRO_APP_ENVIRONMENT__) {
   // 设置 publicPath
-  if (window.__MICRO_APP_PUBLIC_PATH__) {
-    __webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__;
-  }
 }
 
 // wujie 环境

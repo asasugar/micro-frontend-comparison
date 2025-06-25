@@ -18,7 +18,7 @@ const router = createRouter({
 const app = createApp(App);
 app.use(ArcoVue);
 app.use(router);
-app.mount('#app');
+app.mount('#root');
 
 Garfish.run({
   basename: '/',
@@ -29,10 +29,10 @@ Garfish.run({
       activeWhen: '/vue-app',
       entry: 'http://localhost:8002',
     },
-    {
-      name: 'react-app',
-      activeWhen: '/react-app',
-      entry: 'http://localhost:8003',
-    },
+    // {
+    //   name: 'react-app',
+    //   activeWhen: '/react-app',
+    //   entry: 'http://localhost:8003',
+    // },
   ],
 });

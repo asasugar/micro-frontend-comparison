@@ -14,10 +14,10 @@
           <a-list-item>统一的组件库 (Arco Design)</a-list-item>
         </a-list>
         <a-space>
-          <a-button type="primary" @click="router.push('/react-app')"> 访问 React 子应用 </a-button>
           <a-button type="primary" status="success" @click="router.push('/vue-app')">
             访问 Vue 子应用
           </a-button>
+          <a-button type="primary" @click="router.push('/react-app')"> 访问 React 子应用 </a-button>
         </a-space>
       </a-space>
     </a-card>

@@ -25,7 +25,8 @@ const currentRoute = ref(route.path);
 watch(
   () => route.path,
   newPath => {
-    currentRoute.value = newPath;
+    const path = newPath === '/' ? newPath : newPath.endsWith('/') ? newPath.slice(0, -1) : newPath;
+    currentRoute.value = path;
   }
 );
 

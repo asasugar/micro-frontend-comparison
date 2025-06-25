@@ -7,12 +7,8 @@
           这是一个 Vue3 子应用，当前计数：{{ count }}
         </a-typography-paragraph>
         <a-space>
-          <a-button type="primary" @click="increment">
-            增加
-          </a-button>
-          <a-button status="danger" @click="decrement">
-            减少
-          </a-button>
+          <a-button type="primary" @click="increment"> 增加 </a-button>
+          <a-button status="danger" @click="decrement"> 减少 </a-button>
         </a-space>
       </a-space>
     </a-card>
@@ -20,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 const count = ref(0);
 

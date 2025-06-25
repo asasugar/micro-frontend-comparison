@@ -1,5 +1,10 @@
 {
   "extends": "../../../configs/typescript/react.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx"
+  },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

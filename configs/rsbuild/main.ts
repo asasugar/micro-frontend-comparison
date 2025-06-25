@@ -1,6 +1,5 @@
 import { mergeRsbuildConfig } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
-import { pluginLess } from '@rsbuild/plugin-less';
 import type { RsbuildConfig } from '@rsbuild/core';
 import { baseConfig } from './base';
 
@@ -15,6 +14,6 @@ export const getMainConfig = (options: MainOptions = {}): RsbuildConfig => {
     server: {
       port,
     },
-    plugins: [pluginVue(), pluginLess()],
+    plugins: [pluginVue()],
   });
 };

@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import "./App.less";
+import React from 'react';
+import { useRoutes } from 'react-router-dom';
+import routes from './router';
+import './App.less';
 
 declare global {
   interface Window {
@@ -11,16 +11,11 @@ declare global {
 }
 
 const App: React.FC = () => {
-  const basename = window.__POWERED_BY_WUJIE__ ? "/" : "/";
-
+  const elements = useRoutes(routes);
   return (
-    <Router basename={basename}>
-      <div className="app-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <header className="App-header">{elements}</header>
+    </div>
   );
 };
 

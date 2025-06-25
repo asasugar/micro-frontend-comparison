@@ -1,27 +1,20 @@
-import React, { useState } from "react";
-import { Card, Space, Typography, Button } from "@arco-design/web-react";
-import "./Home.less";
+import React from 'react';
+import { Typography, List } from '@arco-design/web-react';
+import './Home.less';
 
 const Home: React.FC = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="home">
-      <Card style={{ width: 600 }} title="React 子应用">
-        <Space direction="vertical" size="large" style={{ width: "100%" }}>
-          <Typography.Paragraph>
-            这是一个 React 子应用，当前计数：{count}
-          </Typography.Paragraph>
-          <Space>
-            <Button type="primary" onClick={() => setCount(count + 1)}>
-              增加
-            </Button>
-            <Button status="danger" onClick={() => setCount(count - 1)}>
-              减少
-            </Button>
-          </Space>
-        </Space>
-      </Card>
+      <Typography.Title>欢迎使用 React 子应用</Typography.Title>
+      <Typography.Paragraph>
+        这是一个基于 React 18 的微前端子应用，包含以下特性：
+      </Typography.Paragraph>
+      <List>
+        <List.Item>React 18 + TypeScript</List.Item>
+        <List.Item>Arco Design 组件库</List.Item>
+        <List.Item>React Router 6 路由</List.Item>
+        <List.Item>微前端框架支持</List.Item>
+      </List>
     </div>
   );
 };

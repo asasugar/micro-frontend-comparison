@@ -16,14 +16,14 @@ registerMicroApps([
   {
     name: 'vue-app',
     entry: '//localhost:8002',
-    container: '#subapp-container',
-    activeRule: '/vue',
+    container: '#vue-app',
+    activeRule: '/vue-app',
   },
   {
     name: 'react-app',
     entry: '//localhost:8003',
-    container: '#subapp-container',
-    activeRule: '/react',
+    container: '#react-app',
+    activeRule: '/react-app',
   },
 ]);
 

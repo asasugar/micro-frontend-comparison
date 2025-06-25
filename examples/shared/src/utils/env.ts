@@ -30,13 +30,19 @@ export const configurePublicPath = () => {
 
   switch (envType) {
     case MicroFrontendType.QIANKUN:
-      // Qiankun 特定的 publicPath 配置
+      if (window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__) {
+        window.__webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
+      }
       break;
     case MicroFrontendType.MICRO_APP:
-      // MicroApp 特定的 publicPath 配置
+      if (window.__MICRO_APP_PUBLIC_PATH__) {
+        window.__webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__;
+      }
       break;
     case MicroFrontendType.WUJIE:
-      // WuJie 特定的 publicPath 配置
+      if (window.__WUJIE_PUBLIC_PATH__) {
+        window.__webpack_public_path__ = window.__WUJIE_PUBLIC_PATH__;
+      }
       break;
     case MicroFrontendType.GARFISH:
       // Garfish 特定的 publicPath 配置

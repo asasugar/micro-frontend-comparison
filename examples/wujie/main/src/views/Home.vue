@@ -9,7 +9,7 @@
         <ul>
           <li>基于 Vue3 的主应用</li>
           <li>Vue3 子应用</li>
-          <li>React 18 子应用</li>
+          <li>React 19 子应用</li>
           <li>统一的构建工具 (Rsbuild)</li>
           <li>完整的 TypeScript 支持</li>
           <li>优雅的 UI 设计 (Arco Design)</li>

@@ -1,8 +1,10 @@
 packages:
   # apps 示例
   - 'examples/apps/*'
+  - 'examples/shared'
   # 各个微前端框架示例
-  - 'examples/qiankun/**'
-  - 'examples/micro-app/**'
-  - 'examples/wujie/**'
-  - 'examples/garfish/**'
+  - 'examples/qiankun/*'
+  - 'examples/micro-app/*'
+  - 'examples/wujie/*'
+  - 'examples/garfish/*'
+  - 'configs/**'

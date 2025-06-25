@@ -2,8 +2,8 @@ import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { MicroFrontendType, getMicroFrontendType, configurePublicPath } from './utils/env';
-import type { MicroAppProps } from './types/micro-frontend';
+import { MicroFrontendType, getMicroFrontendType, configurePublicPath } from '@examples/shared';
+import type { MicroAppProps } from '@examples/shared';
 import { ConfigProvider } from '@arco-design/web-react';
 import '@arco-design/web-react/dist/css/arco.css';
 

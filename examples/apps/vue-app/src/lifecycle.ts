@@ -2,8 +2,9 @@ import { App as VueApp, h, createApp } from 'vue';
 import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import router from './router';
-import { MicroFrontendType, getMicroFrontendType, configurePublicPath } from './utils/env';
+import { MicroFrontendType, getMicroFrontendType, configurePublicPath } from '@examples/shared';
 import { vueBridge } from '@garfish/bridge-vue-v3';
+
 interface RenderProps {
   container?: any;
   routerBase?: string;

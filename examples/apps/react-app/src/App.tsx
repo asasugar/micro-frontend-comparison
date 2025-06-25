@@ -3,16 +3,9 @@ import { useRoutes } from 'react-router-dom';
 import routes from './router';
 import './App.less';
 
-declare global {
-  interface Window {
-    __POWERED_BY_WUJIE__?: boolean;
-    __WUJIE_PUBLIC_PATH__?: string;
-  }
-}
-
 const App: React.FC = () => {
   const elements = useRoutes(routes);
-  return <div className="app-container">{elements}</div>;
+  return <div className="app-container">{elements as React.ReactElement}</div>;
 };
 
 export default App;

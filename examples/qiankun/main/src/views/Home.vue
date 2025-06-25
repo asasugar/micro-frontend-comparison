@@ -5,7 +5,7 @@
     <a-list>
       <a-list-item> 主应用 - 使用 Vue 3 + Rsbuild + Arco Design Vue </a-list-item>
       <a-list-item> Vue 子应用 - 使用 Vue 3 + Vite </a-list-item>
-      <a-list-item> React 子应用 - 使用 React 18 + Vite </a-list-item>
+      <a-list-item> React 子应用 - 使用 React 19 + Vite </a-list-item>
     </a-list>
     <div class="actions">
       <a-button type="primary" @click="router.push('/vue-app')"> 访问 Vue 子应用 </a-button>

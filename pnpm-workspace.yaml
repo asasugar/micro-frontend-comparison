@@ -1,6 +1,4 @@
 packages:
-  # 所有 packages/ 目录下的包
-  - 'packages/*'
   # apps 示例
   - 'examples/apps/*'
   # 各个微前端框架示例

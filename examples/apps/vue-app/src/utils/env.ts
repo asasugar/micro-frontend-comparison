@@ -30,12 +30,10 @@ export const configurePublicPath = () => {
 
   switch (envType) {
     case MicroFrontendType.QIANKUN:
-      window.__webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__;
+      // Qiankun 特定的 publicPath 配置
       break;
     case MicroFrontendType.MICRO_APP:
-      if (window.__MICRO_APP_PUBLIC_PATH__) {
-        window.__webpack_public_path__ = window.__MICRO_APP_PUBLIC_PATH__;
-      }
+      // MicroApp 特定的 publicPath 配置
       break;
     case MicroFrontendType.WUJIE:
       // WuJie 特定的 publicPath 配置

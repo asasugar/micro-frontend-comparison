@@ -1,6 +1,6 @@
 <template>
   <div class="sub-app">
-    <micro-app name="vue-app" url="http://localhost:8002/vue-app/" baseroute="/vue-app" />
+    <micro-app name="vue-app" url="http://localhost:8002/v -app/" baseroute="/vue-app" />
   </div>
 </template>
 

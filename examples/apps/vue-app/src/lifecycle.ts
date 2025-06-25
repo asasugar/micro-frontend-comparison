@@ -1,9 +1,9 @@
-import { App as VueApp, createApp } from 'vue';
+import { App as VueApp, h, createApp } from 'vue';
 import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import router from './router';
 import { MicroFrontendType, getMicroFrontendType, configurePublicPath } from './utils/env';
-
+import { vueBridge } from '@garfish/bridge-vue-v3';
 interface RenderProps {
   container?: any;
   routerBase?: string;
@@ -55,8 +55,28 @@ export const initializeApp = () => {
       window.__WUJIE_MOUNT = () => render();
       window.__WUJIE_UNMOUNT = () => destroy();
       break;
+
+    case MicroFrontendType.GARFISH:
+      console.log('garfish 通过 provider 挂载');
+      break;
     default:
       render();
       break;
   }
 };
+
+// 导出 garfish 的 provider
+export const provider = vueBridge({
+  rootComponent: App,
+  appOptions: ({ appName }) => {
+    return {
+      el: `#${appName}`,
+      render: () => h(App),
+    };
+  },
+  // 可选，注册 vue-router、ArcoVue等
+  handleInstance: vueInstance => {
+    vueInstance.use(ArcoVue);
+    vueInstance.use(router);
+  },
+});

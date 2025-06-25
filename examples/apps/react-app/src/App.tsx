@@ -12,11 +12,7 @@ declare global {
 
 const App: React.FC = () => {
   const elements = useRoutes(routes);
-  return (
-    <div className="App">
-      <header className="App-header">{elements}</header>
-    </div>
-  );
+  return <div className="app-container">{elements}</div>;
 };
 
 export default App;

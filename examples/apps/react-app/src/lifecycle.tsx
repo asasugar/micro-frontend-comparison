@@ -72,8 +72,35 @@ export const initializeApp = () => {
       window.__WUJIE_MOUNT = () => render();
       window.__WUJIE_UNMOUNT = () => destroy();
       break;
+    case MicroFrontendType.GARFISH:
+      console.log('garfish 通过 provider 挂载');
+      break;
     default:
       render();
       break;
   }
+};
+
+// 导出 garfish 的 provider
+export const provider = () => {
+  let root: Root | null = null;
+
+  return {
+    render({ basename, appName, dom }: Record<string, any>) {
+      const container = dom.querySelector(`#${appName}`);
+      root = createRoot(container!);
+      root.render(
+        <React.StrictMode>
+          <ConfigProvider>
+            <BrowserRouter basename={basename}>
+              <App />
+            </BrowserRouter>
+          </ConfigProvider>
+        </React.StrictMode>
+      );
+    },
+    destroy() {
+      root?.unmount();
+    },
+  };
 };

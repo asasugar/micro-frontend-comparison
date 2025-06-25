@@ -50,7 +50,7 @@ export const getChildConfig = (options: ChildOptions = {}): RsbuildConfig => {
       rspack: {
         output: {
           library: framework === 'qiankun' ? publicPathName : undefined,
-          libraryTarget: framework === 'qiankun' ? 'umd' : undefined,
+          libraryTarget: ['qiankun', 'garfish'].includes(framework) ? 'umd' : undefined,
         },
       },
     },

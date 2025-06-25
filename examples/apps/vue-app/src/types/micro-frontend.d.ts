@@ -9,7 +9,6 @@ declare global {
     __WUJIE_UNMOUNT?: () => void;
     __GARFISH__?: boolean;
     __INJECTED_PUBLIC_PATH_BY_QIANKUN__: string;
-    __webpack_public_path__: string;
   }
 }
 

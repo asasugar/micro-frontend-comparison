@@ -8,22 +8,31 @@
         <a-menu-item key="/react-app">React 子应用</a-menu-item>
       </a-menu>
     </a-layout-header>
-    <router-view v-slot="{ Component }">
-      <component :is="Component" />
-    </router-view>
-    <div id="subapp-container" />
+
+    <a-layout-content class="content">
+      <router-view />
+      <div id="subapp-container" />
+    </a-layout-content>
   </a-layout>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, watch } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 const router = useRouter();
+const route = useRoute();
+
 const currentRoute = ref('/');
 
+watch(
+  () => route.path,
+  newPath => {
+    const path = newPath === '/' ? newPath : newPath.endsWith('/') ? newPath.slice(0, -1) : newPath;
+    currentRoute.value = path;
+  }
+);
 const handleMenuClick = (key: string) => {
-  currentRoute.value = key;
   router.push(key);
 };
 </script>
@@ -33,6 +42,9 @@ const handleMenuClick = (key: string) => {
   height: 100vh;
 }
 
+.arco-menu-horizontal {
+  width: 100%;
+}
 .header {
   display: flex;
   align-items: center;

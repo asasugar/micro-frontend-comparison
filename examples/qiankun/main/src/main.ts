@@ -24,16 +24,16 @@ registerMicroApps([
       basename: '/vue-app',
     },
   },
-  // {
-  //   name: 'react-app',
-  //   entry: '//localhost:8003',
-  //   container: '#subapp-container',
-  //   activeRule: '/react-app',
-  //   props: {
-  //     routerBase: '/react-app',
-  //     basename: '/react-app'
-  //   }
-  // },
+  {
+    name: 'react-app',
+    entry: '//localhost:8003',
+    container: '#subapp-container',
+    activeRule: '/react-app',
+    props: {
+      routerBase: '/react-app',
+      basename: '/react-app',
+    },
+  },
 ]);
 
 // 启动 qiankun

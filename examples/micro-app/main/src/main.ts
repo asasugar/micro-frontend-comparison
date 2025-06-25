@@ -40,7 +40,6 @@ microApp.start({
 
 // 创建 Vue 应用
 const app = createApp(App);
-console.log('%c [ app ]-44', 'font-size:13px; background:pink; color:#bf2c9f;', app);
 app.use(ArcoVue);
 app.use(router);
 app.mount('#root');

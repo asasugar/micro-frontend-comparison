@@ -6,8 +6,6 @@ declare module '@vue-app/*.vue' {
   export default component;
 }
 
-declare let __webpack_public_path__: string;
-
 interface Window {
   // qiankun
   __POWERED_BY_QIANKUN__?: boolean;

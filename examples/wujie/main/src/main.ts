@@ -11,4 +11,4 @@ app.use(ArcoVue);
 app.use(router);
 app.use(WujieVue);
 
-app.mount('#app');
+app.mount('#root');

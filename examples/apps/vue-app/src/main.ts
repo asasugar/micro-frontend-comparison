@@ -14,6 +14,8 @@ declare global {
     // wujie
     __POWERED_BY_WUJIE__?: boolean;
     __WUJIE_PUBLIC_PATH__?: string;
+    __WUJIE_MOUNT?: () => void;
+    __WUJIE_UNMOUNT?: () => void;
     // garfish
     __GARFISH__?: boolean;
     __INJECTED_PUBLIC_PATH_BY_QIANKUN__: string;
@@ -55,14 +57,14 @@ if (window.__MICRO_APP_ENVIRONMENT__) {
 
 // wujie 环境
 if (window.__POWERED_BY_WUJIE__) {
-  const path = window.__WUJIE_PUBLIC_PATH__ || '/';
-  router.beforeEach((to, from, next) => {
-    if (to.path === '/') {
-      next();
-    } else {
-      next(path);
-    }
-  });
+  window.__WUJIE_MOUNT = () => {
+    render();
+  };
+  window.__WUJIE_UNMOUNT = () => {
+    app?.unmount();
+  };
+} else {
+  render();
 }
 
 // garfish 环境

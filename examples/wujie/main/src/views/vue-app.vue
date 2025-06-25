@@ -1,6 +1,6 @@
 <template>
   <div class="subapp-container">
-    <WujieVue name="vue-app" url="http://localhost:8001" :sync="true" :props="props" />
+    <WujieVue name="vue-app" url="http://localhost:8002" :sync="true" :props="props" />
   </div>
 </template>
 

@@ -2,21 +2,17 @@
   <a-layout class="layout">
     <a-layout-header class="header">
       <div class="logo">QianKun 示例</div>
-      <a-menu
-        mode="horizontal"
-        :selected-keys="[currentRoute]"
-        @menu-item-click="handleMenuClick"
-      >
+      <a-menu mode="horizontal" :selected-keys="[currentRoute]" @menu-item-click="handleMenuClick">
         <a-menu-item key="/">主页</a-menu-item>
-        <a-menu-item key="/vue">Vue 子应用</a-menu-item>
-        <a-menu-item key="/react">React 子应用</a-menu-item>
+        <a-menu-item key="/vue-app">Vue 子应用</a-menu-item>
+        <a-menu-item key="/react-app">React 子应用</a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout-content class="content">
       <router-view v-slot="{ Component }">
         <component :is="Component" />
       </router-view>
-      <div id="subapp-container"></div>
+      <div id="subapp-container" />
     </a-layout-content>
   </a-layout>
 </template>
@@ -29,9 +25,13 @@ const router = useRouter();
 const route = useRoute();
 const currentRoute = ref(route.path);
 
-watch(() => route.path, (newPath) => {
-  currentRoute.value = newPath;
-});
+watch(
+  () => route.path,
+  newPath => {
+    const path = newPath === '/' ? newPath : newPath.endsWith('/') ? newPath.slice(0, -1) : newPath;
+    currentRoute.value = path;
+  }
+);
 
 const handleMenuClick = (key: string) => {
   router.push(key);

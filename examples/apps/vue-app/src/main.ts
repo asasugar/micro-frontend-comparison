@@ -40,9 +40,8 @@ export async function mount(props: any) {
   render(props);
 }
 export async function unmount() {
-  app.$destroy();
   app?.unmount();
-  app.$el.innerHTML = '';
+  app._container.innerHTML = '';
   app = null;
 }
 

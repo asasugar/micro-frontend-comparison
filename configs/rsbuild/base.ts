@@ -4,6 +4,9 @@ import { pluginLess } from '@rsbuild/plugin-less';
 export const getBaseConfig = () => {
   return defineConfig({
     plugins: [pluginLess()],
+    html: {
+      template: './index.html',
+    },
     source: {
       entry: {
         index: './src/main.ts',

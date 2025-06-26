@@ -8,7 +8,7 @@ export const getChildConfig = ({ name, port }: ChildConfigOptions) => {
 
   return mergeRsbuildConfig(baseConfig, {
     html: {
-      template: './index.html',
+      title: name,
     },
     source: {
       define: {

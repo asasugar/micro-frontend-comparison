@@ -13,6 +13,9 @@ export const getMainConfig = ({ type, port, name }: BuildConfigOptions) => {
     server: {
       port: port ?? mainConfig.port,
     },
+    html: {
+      title: name,
+    },
     source: {
       define: {
         'process.env.APP_TYPE': JSON.stringify(type),

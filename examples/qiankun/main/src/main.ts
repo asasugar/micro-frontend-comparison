@@ -4,6 +4,7 @@ import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import router from './router';
 import '@arco-design/web-vue/dist/arco.css';
+import { getMainAppConfig } from '../../../../configs/shared/app.config';
 
 // 创建 Vue 应用
 const app = createApp(App);
@@ -12,29 +13,20 @@ app.use(ArcoVue);
 app.use(router);
 app.mount('#root');
 
+// 获取子应用配置
+const mainConfig = getMainAppConfig('qiankun');
+
 // 注册微应用
-registerMicroApps([
-  {
-    name: 'vue-app',
-    entry: '//localhost:8002',
-    container: '#subapp-container',
-    activeRule: '/vue-app',
+registerMicroApps(
+  mainConfig.subApps.map(app => ({
+    ...app,
+    container: mainConfig.subContainer!,
     props: {
-      routerBase: '/vue-app',
-      basename: '/vue-app',
+      routerBase: app.activeRule,
+      basename: app.activeRule,
     },
-  },
-  {
-    name: 'react-app',
-    entry: '//localhost:8003',
-    container: '#subapp-container',
-    activeRule: '/react-app',
-    props: {
-      routerBase: '/react-app',
-      basename: '/react-app',
-    },
-  },
-]);
+  }))
+);
 
 // 启动 qiankun
 start({

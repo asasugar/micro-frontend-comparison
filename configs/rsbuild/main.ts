@@ -1,19 +1,23 @@
 import { mergeRsbuildConfig } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
-import type { RsbuildConfig } from '@rsbuild/core';
-import { baseConfig } from './base';
+import { getMainAppConfig } from '../shared/app.config';
+import type { BuildConfigOptions } from './types';
+import { getBaseConfig } from './base';
 
-interface MainOptions {
-  port?: number;
-}
-
-export const getMainConfig = (options: MainOptions = {}): RsbuildConfig => {
-  const { port = 8001 } = options;
+export const getMainConfig = ({ type, port, name }: BuildConfigOptions) => {
+  const mainConfig = getMainAppConfig(type);
+  const baseConfig = getBaseConfig();
 
   return mergeRsbuildConfig(baseConfig, {
-    server: {
-      port,
-    },
     plugins: [pluginVue()],
+    server: {
+      port: port ?? mainConfig.port,
+    },
+    source: {
+      define: {
+        'process.env.APP_TYPE': JSON.stringify(type),
+        'process.env.APP_NAME': JSON.stringify(name),
+      },
+    },
   });
 };

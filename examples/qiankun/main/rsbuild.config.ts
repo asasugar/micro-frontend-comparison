@@ -1,5 +1,6 @@
 import { getMainConfig } from '../../../configs/rsbuild/main';
 
 export default getMainConfig({
-  port: process.env.PORT ? parseInt(process.env.PORT) : 8001,
+  type: 'qiankun',
+  name: 'qiankun-app-main',
 });

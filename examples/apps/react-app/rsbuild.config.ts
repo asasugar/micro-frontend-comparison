@@ -1,10 +1,18 @@
+import { mergeRsbuildConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 import { getChildConfig } from '../../../configs/rsbuild/child';
 
-export default getChildConfig({
-  entry: './src/main.tsx',
+const baseChildConfig = getChildConfig({
+  name: 'react-app',
   port: Number(process.env.PORT) || 8003,
-  publicPathName: '/react-app/',
+});
+
+export default mergeRsbuildConfig(baseChildConfig, {
+  source: {
+    entry: {
+      index: './src/main.tsx',
+    },
+  },
   plugins: [
     pluginReact({
       swcReactOptions: {

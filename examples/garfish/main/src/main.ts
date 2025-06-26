@@ -4,6 +4,11 @@ import Garfish from 'garfish';
 import ArcoVue from '@arco-design/web-vue';
 import App from './App.vue';
 import '@arco-design/web-vue/dist/arco.css';
+import { getMainAppConfig } from '../../../../configs/shared/app.config';
+import type { SubAppConfig } from '../../../../configs/shared/types';
+
+// 获取子应用配置
+const mainConfig = getMainAppConfig('garfish');
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,21 +19,18 @@ const router = createRouter({
     },
   ],
 });
+
+// 注册微应用
 Garfish.run({
   basename: '/',
   domGetter: '#subapp-container',
-  apps: [
-    {
-      name: 'vue-app',
-      activeWhen: '/vue-app',
-      entry: 'http://localhost:8002',
-    },
-    {
-      name: 'react-app',
-      activeWhen: '/react-app',
-      entry: 'http://localhost:8003',
-    },
-  ],
+  apps: mainConfig.subApps.map((app: SubAppConfig) => {
+    return {
+      name: app.name,
+      activeWhen: app.activeRule,
+      entry: app.entry,
+    };
+  }),
 });
 const app = createApp(App);
 app.use(ArcoVue);

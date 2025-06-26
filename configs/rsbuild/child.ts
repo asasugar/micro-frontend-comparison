@@ -1,68 +1,37 @@
 import { mergeRsbuildConfig } from '@rsbuild/core';
-import type { RsbuildConfig } from '@rsbuild/core';
-import { baseConfig } from './base';
+import type { ChildConfigOptions } from './types';
+import { getBaseConfig } from './base';
 
-interface ChildOptions {
-  port?: number;
-  framework?: 'qiankun' | 'micro-app' | 'wujie' | 'garfish';
-  entry?: string;
-  publicPathName?: string;
-  plugins?: RsbuildConfig['plugins'];
-}
-
-const getPublicPath = (framework: string, publicPathName: string, port: number): string => {
-  switch (framework) {
-    case 'qiankun':
-      return `http://localhost:${port}/`;
-    case 'micro-app':
-      return publicPathName;
-    case 'wujie':
-      return publicPathName;
-    case 'garfish':
-      return `http://localhost:${port}/`;
-    default:
-      return '/';
-  }
-};
-
-export const getChildConfig = (options: ChildOptions = {}): RsbuildConfig => {
-  const {
-    port = 8002,
-    framework = process.env.BUILD_ENV as string,
-    entry = './src/main.ts',
-    publicPathName = '/',
-    plugins = [],
-  } = options;
+export const getChildConfig = ({ name, port }: ChildConfigOptions) => {
+  const baseConfig = getBaseConfig();
+  const finalPort = port ?? 8002;
 
   return mergeRsbuildConfig(baseConfig, {
     html: {
       template: './index.html',
     },
     source: {
-      entry: {
-        index: entry,
+      define: {
+        'process.env.APP_NAME': JSON.stringify(name),
       },
-    },
-    output: {
-      assetPrefix: getPublicPath(framework, publicPathName, port),
     },
     tools: {
       rspack: {
         output: {
-          library: framework === 'qiankun' ? publicPathName : undefined,
-          libraryTarget: ['qiankun', 'garfish'].includes(framework) ? 'umd' : undefined,
+          // 默认配置支持 qiankun 和 garfish
+          library: name,
+          libraryTarget: 'umd',
         },
       },
     },
     server: {
-      port,
+      port: finalPort,
       headers: {
         'Access-Control-Allow-Origin': '*',
       },
     },
     dev: {
-      assetPrefix: getPublicPath(framework, publicPathName, port),
+      assetPrefix: `http://localhost:${finalPort}/`,
     },
-    plugins,
   });
 };

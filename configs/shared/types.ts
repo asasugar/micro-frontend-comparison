@@ -11,8 +11,8 @@ export interface SubAppConfig {
 // 主应用配置
 export interface MainAppConfig {
   port: number;
-  container?: string | HTMLElement;
-  subContainer?: string;
+  container: string | HTMLElement;
+  subContainer?: string | HTMLElement;
   subApps: SubAppConfig[];
 }
 

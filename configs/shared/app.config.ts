@@ -4,6 +4,7 @@ import type { AppConfigManager, MainAppConfig, MicroFrontendType, SubAppConfig }
 export const mainAppsConfig: AppConfigManager = {
   qiankun: {
     port: 8001,
+    container: '#root',
     subContainer: '#subapp-container',
     subApps: [
       {
@@ -20,6 +21,7 @@ export const mainAppsConfig: AppConfigManager = {
   },
   'micro-app': {
     port: 8001,
+    container: '#root',
     subApps: [
       {
         name: 'vue-app',
@@ -35,6 +37,7 @@ export const mainAppsConfig: AppConfigManager = {
   },
   wujie: {
     port: 8001,
+    container: '#root',
     subApps: [
       {
         name: 'vue-app',
@@ -50,6 +53,8 @@ export const mainAppsConfig: AppConfigManager = {
   },
   garfish: {
     port: 8001,
+    container: '#root',
+    subContainer: '#subapp-container',
     subApps: [
       {
         name: 'vue-app',
